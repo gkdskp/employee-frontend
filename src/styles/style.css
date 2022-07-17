@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans';
+}
+
+.hidden {
+    display: none;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 8px 35px;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+button.primary {
+    background-color: blue;
+    color: white;
+}
+
+button.outlined {
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+aside {
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+aside.login-aside {
+    width: 50%;
+    background-color: rgb(3, 174, 238, 0.1);
+    box-shadow: unset;
+}
+
+aside #logo {
+    padding: 20px 0px;
+    background-color: rgba(226, 232, 250, 0.2);
+    text-align: center;
+    width: 100%;
+    height: 80px;
+}
+
+aside #side-nav {
+    height: 100%;
+    text-align: center;
+    margin-top: 15px;
+} 
+
+aside #side-nav ul {
+    margin-left: 20px;
+}
+
+aside #side-nav ul li {
+    text-align: left;
+    list-style: none;
+    background-color: #03AEEE;
+    width: 100%;
+    
+    padding: 12px 5px;
+    border-radius: 50px 0% 00% 50px;
+}
+
+aside #side-nav ul li img {
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 8px;
+}
+
+aside #side-nav ul li a {
+    color: white;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    padding: 5px;
+    font-weight: bold;
+}
+
+main {
+    margin-left: 15%; 
+    margin-top: 80px;
+    padding-top: 15px;
+    position: relative;
+    height: calc(100vh - 80px);
+    background: #FAFAFA;
+}
+
+main.login-main {
+    margin-left: 50%;
+    background: #fff;
+}
+
+main section {
+    background: #FDFDFD 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #9D9D9D29;
+    border-radius: 10px;
+    margin: 10px 25px 25px 25px;
+    padding: 20px;
+}
+
+main section.login-section {
+    box-shadow: unset;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+    padding: unset;
+    margin: unset;
+}
+
+main section.login-section #logo {
+    margin-bottom: 15px;
+}
+
+main section #form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+main section.vertical-fields #form-container {
+    flex-direction: column !important;
+}
+
+main section #form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+main section#form .input-field {
+    width: 30%;
+    min-width: 350px;
+    display: inline-block;
+}
+
+main section#form .input-field .input-field-container {
+    padding: 15px 35px 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+main section#form .input-field .input-field-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+main section#form .input-field .input-field-container label.input {
+    margin-bottom: unset;
+    font-weight: unset;
+    font-size: 0.8em;
+    color: #555;
+}
+
+
+main section#form input, main section#form select, .input-dummy {
+    padding: 10px 10px;
+    background: rgb(245, 249, 253);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.input-dummy {
+    text-align: right;
+}
+
+.input {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+main section#form select::after {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    content: "";
+}
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.action-container {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.filter p {
+    margin-right: 15px;
+}
+
+.filter select {
+    background: #EAF9FF 0% 0% no-repeat padding-box;
+    border-radius: 50px;
+    padding: 5px 40px;
+    border: none;
+}
+
+.icon-button {
+    cursor: pointer;
+}
+
+.icon-button .circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #FFFFFF;
+    background: #03AEEE;
+    font-size: 2.3em;
+    z-index: 1;
+}
+
+.icon-button-text {
+    background-color: #EAF9FF;
+    padding: 10px 20px 10px 50px;
+    border-radius: 50px;
+    margin-left: -35px;
+}
+
+table {
+    padding: 10px 25px 25px 25px;
+    width: 100%;
+    border-spacing: 0 1.005em;
+}   
+
+thead {
+    background-color: #EAF9FF;
+    box-shadow: 0px 3px 6px #9D9D9D29;
+    border-radius: 10px;
+}
+
+thead th {
+    padding: 20px;
+    text-align: left;
+}
+
+
+tbody tr {
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 6px #9D9D9D29;
+    border-radius: 10px;
+    line-height: 30px;
+}
+
+tbody td {
+    padding: 20px;
+}
+
+.status .tag {
+    padding: 5px 15px;
+    /* width: 40px; */
+    width: 150px;
+    text-align: center;
+    border-radius: 40px;
+}
+
+.status-probation .tag {
+    background: #F5ECB8;
+}
+
+.status-active .tag {
+    background: #D3F4BE;
+}
+
+.status-inactive .tag {
+    background: #FFBFBF;
+}

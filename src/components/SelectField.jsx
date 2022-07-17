@@ -1,10 +1,10 @@
-const SelectField = ({ label, options }) => {
+const SelectField = ({ label, options, handleChange }) => {
     return (
         <div className="input-field">
             <div className="input-field-container">
                 <label htmlFor="" name="">{ label }</label>
-                <select>
-                    {options.map(option => <option>{ option }</option>)}
+                <select onChange={e => handleChange(e.target.value)}>
+                    {options.map(option => <option key={option}>{ option }</option>)}
                 </select>
             </div>
         </div>

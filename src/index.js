@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CreateEmployee from './CreateEmployee';
+import CreateEmployee from './pages/CreateEmployee';
+import Login from './pages/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import EmployeeList from './pages/EmployeeList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CreateEmployee />
-    {/* <App /> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/create" element={<CreateEmployee />} />
+        <Route path="/dashboard" element={<EmployeeList />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -17,3 +24,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+ 
