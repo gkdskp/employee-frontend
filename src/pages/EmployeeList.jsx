@@ -1,23 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IconButton from "../components/IconButton";
 import MainContainer from "../components/MainContainer";
 import SelectField from "../components/SelectField";
 import Table from "../components/Table";
 import employeeList from "../service/mockData";
 import CreateEmployee from "./CreateEmployee";
+import { useGetEmployeesQuery } from '../api';
 
 function EmployeeList() {
-    const [employees, setEmployees] = useState(employeeList);
+    // const [employees, setEmployees] = useState(employeeList);
     const [isCreateScreen, setIsCreateScreen] = useState(false);
+    const {data, error, isLoading} = useGetEmployeesQuery();
+
+    useEffect(() => {
+        console.log(data);
+    }, [data])
 
     const addEmployee = newEmployee => {
         console.log(newEmployee);
 
-        setEmployees([
-            ...employees,
-            newEmployee
-        ]);
-        setIsCreateScreen(false);
+        // setEmployees([
+        //     ...employees,
+        //     newEmployee
+        // ]);
+        // setIsCreateScreen(false);
     }
 
     const toggleCreateScreen = () => {
@@ -52,13 +58,26 @@ function EmployeeList() {
         "Actions"
     ];
 
-    return !isCreateScreen ? (
+    if(isCreateScreen) return (
+        <MainContainer title="Create Employee">
+            <CreateEmployee 
+                onSubmit={addEmployee} 
+                onCancel={toggleCreateScreen} 
+            />
+        </MainContainer>
+    );
+
+    if(isLoading) return (<p>Loading</p>);
+
+    if(error) return (<p>error</p>);
+
+    return (
         <MainContainer title="Employee List" actions={actions}>
             <Table headerItems={tableHeaderItems}>
-                {employees.map((data, index) => (
+                {data['data'].map((data, index) => (
                     <tr className="card" key={index}>
                         <td>{data['name']}</td>
-                        <td>{data['employeeID']}</td>
+                        <td>{data['id']}</td>
                         <td>{data['joiningDate']}</td>
                         <td>{data['role']}</td>
                         <td
@@ -69,11 +88,8 @@ function EmployeeList() {
                     </tr>
                 ))}
             </Table>
-        </MainContainer>) : (
-        <MainContainer title="Create Employee">
-            <CreateEmployee onSubmit={addEmployee} onCancel={toggleCreateScreen} />
         </MainContainer>
-    )
+    ); 
 }
 
 export default EmployeeList;

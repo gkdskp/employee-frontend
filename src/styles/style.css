@@ -227,7 +227,7 @@ main section#form select::after {
     border: none;
 }
 
-.icon-button {
+.icon-button, button {
     cursor: pointer;
 }
 
@@ -261,7 +261,7 @@ thead {
 }
 
 thead th {
-    padding: 20px;
+    padding: 15px;
     text-align: left;
 }
 
@@ -274,11 +274,11 @@ tbody tr {
 }
 
 tbody td {
-    padding: 20px;
+    padding: 8px 15px;
 }
 
 .status .tag {
-    padding: 5px 15px;
+    padding: 2px 8px;
     /* width: 40px; */
     width: 150px;
     text-align: center;
@@ -295,4 +295,17 @@ tbody td {
 
 .status-inactive .tag {
     background: #FFBFBF;
+}
+
+.flex-columns {
+    flex-direction: column;
+}
+
+.flex-start {
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.full-width {
+    width: 90%;
 }

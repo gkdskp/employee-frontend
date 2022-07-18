@@ -1,6 +1,6 @@
 function SideBar(props) {
-    // const { navigationItems } = props;
-
+    const { navigationItems } = props;
+    
     return (
         <aside>
             <div id="logo">

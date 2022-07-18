@@ -31,30 +31,32 @@ function Login() {
         </aside>
         <main className="login-main">
             <section id="form" className="vertical-fields login-section">
-                <div id="logo">
-                    <a href="/"><img src="assets/logo.png" alt="KeyValue logo" /></a>
+                <div className="flex flex-columns flex-start">
+                    <div id="logo">
+                        <a href="/"><img src="assets/logo.png" alt="KeyValue logo" /></a>
+                    </div>
+                    <form id="employee-form">
+                        <div id="form-container">
+                            <InputField
+                                label={'Username'}
+                                handleChange={handleUsernameChange}
+                                value={userCredentials.username}
+                            />
+                            <InputField
+                                label={'Password'}
+                                handleChange={handlePasswordChange}
+                                value={userCredentials.password}
+                            />
+                        </div>
+                        <div id="form-buttons">
+                            <Button
+                                handleClick={() => { navigate('/dashboard'); }}
+                                label={'Log In'}
+                                variant="primary full-width"
+                            />
+                        </div>
+                    </form>
                 </div>
-                <form id="employee-form">
-                    <div id="form-container">
-                        <InputField
-                            label={'Username'}
-                            handleChange={handleUsernameChange}
-                            value={userCredentials.username}
-                        />
-                        <InputField
-                            label={'Password'}
-                            handleChange={handlePasswordChange}
-                            value={userCredentials.password}
-                        />
-                    </div>
-                    <div id="form-buttons">
-                        <Button
-                            handleClick={() => { navigate('/dashboard'); }}
-                            label={'Log In'}
-                            variant="primary"
-                        />
-                    </div>
-                </form>
             </section>
         </main>
     </>

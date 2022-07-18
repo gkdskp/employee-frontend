@@ -6,12 +6,12 @@ function Table(props) {
             <thead className="card">
                 <tr>
                     {headerItems.map(headerItem => (
-                        <th>{headerItem}</th>
+                        <th>{ headerItem }</th>
                     ))}
                 </tr>
             </thead>
             <tbody>
-                {children}
+                { children }
             </tbody>
         </table>
     );

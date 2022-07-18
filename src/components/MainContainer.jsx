@@ -9,13 +9,13 @@ function MainContainer(props) {
             <div id="container">
                 <main>
                     <section id="header">
-                        <h1>{title}</h1>
+                        <h1>{ title }</h1>
                         <div className="actions flex">
-                            {actions}
+                            { actions }
                         </div>
                     </section>
 
-                    {children}
+                    { children }
                 </main>
                 
             </div>
