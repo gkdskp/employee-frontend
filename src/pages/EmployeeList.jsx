@@ -33,8 +33,9 @@ function EmployeeList() {
         setShowPopup(false);
         setIdToDelete(null);
     }
-
+    
     const cancelButtonClick = () => {
+        setIdToDelete(null);
         setShowPopup(false);
     }
 
@@ -91,6 +92,7 @@ function EmployeeList() {
                     title="Are you sure?"
                     body="Do you really want to delete employee"
                     actions={popupActions}
+                    close={cancelButtonClick}
                 />
             )}
             <MainContainer title="Employee List" actions={actions}>
