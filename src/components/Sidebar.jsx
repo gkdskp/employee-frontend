@@ -9,7 +9,7 @@ function SideBar(props) {
             <nav id="side-nav">
                 <ul>
                     <li>
-                        <a href="/" className="current">
+                        <a href="/dashboard" className="current">
                             <img src="assets/list.png" alt="list icon" />
                             Employee list
                         </a>

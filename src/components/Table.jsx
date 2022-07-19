@@ -6,7 +6,7 @@ function Table(props) {
             <thead className="card">
                 <tr>
                     {headerItems.map(headerItem => (
-                        <th>{ headerItem }</th>
+                        <th key={headerItem}>{ headerItem }</th>
                     ))}
                 </tr>
             </thead>

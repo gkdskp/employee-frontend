@@ -7,7 +7,7 @@ function MainContainer(props) {
         <>
             <SideBar />
             <div id="container">
-                <main>
+                <main className="main-container">
                     <section id="header">
                         <h1>{ title }</h1>
                         <div className="actions flex">

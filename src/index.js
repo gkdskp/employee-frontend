@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import CreateEmployee from './pages/CreateEmployee';
 import Login from './pages/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EmployeeList from './pages/EmployeeList';
 import { store } from './store';
 import { Provider } from 'react-redux';
 import Counter from './pages/Counter';
+import HomePage from './pages/HomePage';
+import EmployeeForm from './pages/EmployeeForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,8 +18,9 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/create" element={<CreateEmployee />} />
+          <Route path="/edit" element={<EmployeeForm />} />
           <Route path="/dashboard" element={<EmployeeList />} />
           <Route path="/counter" element={<Counter />} />
         </Routes>

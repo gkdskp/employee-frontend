@@ -99,7 +99,7 @@ aside #side-nav ul li a {
     font-weight: bold;
 }
 
-main {
+main.main-container {
     margin-left: 15%; 
     margin-top: 80px;
     padding-top: 15px;
@@ -277,6 +277,12 @@ tbody td {
     padding: 8px 15px;
 }
 
+tbody td svg {
+    width: 20px;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
 .status .tag {
     padding: 2px 8px;
     /* width: 40px; */
@@ -308,4 +314,36 @@ tbody td {
 
 .full-width {
     width: 90%;
+}
+
+.home-container {
+    background: rgb(226, 232, 250, 0.2);
+    height: 10%;
+    padding: 15px;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.logo-title {
+    display: block;
+    font-size: 30px;
+    color: red;
+    text-align: center;
+}
+
+.app-title {
+    font-size: 72px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.home-login-button {
+    display: block;
+    text-align: center;
 }
