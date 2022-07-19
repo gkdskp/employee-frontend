@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EmployeeList from './pages/EmployeeList';
 import { store } from './store';
 import { Provider } from 'react-redux';
-import Counter from './pages/Counter';
 import HomePage from './pages/HomePage';
 import EmployeeForm from './pages/EmployeeForm';
 import EmployeeDetail from './pages/EmployeeDetail';
@@ -24,7 +23,6 @@ root.render(
           <Route path="/edit" element={<EmployeeForm />} />
           <Route path="/employee" element={<EmployeeList />} />
           <Route path="/employee/:id" element={<EmployeeDetail />} />
-          <Route path="/counter" element={<Counter />} />
         </Routes>
       </BrowserRouter>
     </Provider>

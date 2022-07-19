@@ -25,7 +25,7 @@ button {
 }
 
 button.primary {
-    background-color: blue;
+    background-color: #03AEEE   ;
     color: white;
 }
 
@@ -324,8 +324,8 @@ tbody td {
 
 
 tbody td svg {
-    width: 20px;
-    margin: 0px 5px;
+    width: 35px;
+    padding: 0px 5px;
     cursor: pointer;
 }
 
@@ -409,12 +409,51 @@ main section .employee-detail-item {
 }
 
 
-/* */
+/*  login left aside */
 aside.login-aside {
     width: 50%;
-    background-color: rgba(224,248,253,255);
+    background-color: rgba(224, 248, 253, 255);
     box-shadow: unset;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+/* pop up */
+.overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10005;
+    overflow: hidden;
+}
+
+.popup-container {
+    width: 400px;
+    height: 209px;
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100006;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup-container .popup-title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.popup-container .popup-body {
+    padding: 25px;
+    width: 260px;
+    text-align: center;
 }

@@ -11,7 +11,7 @@ export const employeeKeyLabelMap = {
 
     joiningDate: {
         label: "Joining Date",
-        transform: data => data.substring(0, 10)
+        transform: data => data?.substring(0, 10)
     },
 
     email: {
@@ -28,8 +28,8 @@ export const employeeKeyLabelMap = {
         label: "Status",
         transform: data => (
             <div
-                className={`status status-${data.toLowerCase()}`}
-            ><div className="tag">{data}</div></div>
+                className={`status status-${data?.toLowerCase()}`}
+            ><div className="tag">{data ?? ""}</div></div>
         )
     },
 
@@ -41,14 +41,14 @@ export const employeeKeyLabelMap = {
     address: {
         label: "Address",
         transform: data => {
-                const splitArray = data.split(",");
-                return splitArray.map((addressLine, index) => (
-                <span className="addressLine" key={index}>
-                    {`${addressLine}`}
-                    {index !== splitArray.length-1 && ","}
-                    <br />
-                </span>
-            ))
+                const splitArray = data?.split(",");
+                return splitArray?.map((addressLine, index) => (
+                    <span className="addressLine" key={index}>
+                        {`${addressLine}`}
+                        {index !== splitArray.length-1 && ","}
+                        <br />
+                    </span>
+                )); 
         }
     },
 

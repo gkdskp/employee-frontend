@@ -4,11 +4,16 @@ import MainContainer from "../components/MainContainer";
 import { useDeleteEmployeeMutation, useGetEmployeesQuery } from '../api';
 import { useNavigate } from "react-router-dom";
 import EmployeeTable from "../components/EmployeeTable";
+import { useState } from "react";
+import Popup from "../components/Popup";
+import Button from "../components/Button";
 
 function EmployeeList() {
     const {data, error, isLoading} = useGetEmployeesQuery();
     const [deleteEmployee] = useDeleteEmployeeMutation();
     const navigate = useNavigate();
+    const [showPopup, setShowPopup] = useState(false);
+    const [idToDelete, setIdToDelete] = useState(null);
 
     const goToEditForm = (id) => {
         navigate('/edit', { state: { id }});
@@ -17,6 +22,35 @@ function EmployeeList() {
     const goToEmployeeDetail = (id) => {
         navigate(`/employee/${id}`);
     }
+
+    const confirmDelete = (id) => {
+        setIdToDelete(id);
+        setShowPopup(true);
+    }
+
+    const deleteButtonClick = () => {
+        if(idToDelete) deleteEmployee(idToDelete);
+        setShowPopup(false);
+        setIdToDelete(null);
+    }
+
+    const cancelButtonClick = () => {
+        setShowPopup(false);
+    }
+
+    const popupActions = [
+        <Button 
+            variant={'primary'} 
+            label={'Confirm'} 
+            handleClick={deleteButtonClick}
+        />,
+
+        <Button 
+            variant={'outlined'} 
+            label={'Cancel'}
+            handleClick={cancelButtonClick}
+        />
+    ]
 
     const actions = [
         // (
@@ -51,15 +85,24 @@ function EmployeeList() {
     if(error) return (<p>error</p>);
 
     return (
-        <MainContainer title="Employee List" actions={actions}>
-            <EmployeeTable
-                data={data['data']}
-                tableHeaderItems={tableHeaderItems}
-                onEdit={goToEditForm}
-                onDelete={deleteEmployee}
-                onClick={goToEmployeeDetail}
-            />
-        </MainContainer>
+        <>
+            {showPopup && (
+                <Popup 
+                    title="Are you sure?"
+                    body="Do you really want to delete employee"
+                    actions={popupActions}
+                />
+            )}
+            <MainContainer title="Employee List" actions={actions}>
+                <EmployeeTable
+                    data={data['data']}
+                    tableHeaderItems={tableHeaderItems}
+                    onEdit={goToEditForm}
+                    onDelete={confirmDelete}
+                    onClick={goToEmployeeDetail}
+                />
+            </MainContainer>
+        </>
     ); 
 }
 
