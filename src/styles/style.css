@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap');
 
 
+/* common */
+
 * {
     padding: 0;
     margin: 0;
@@ -12,11 +14,8 @@
     display: none;
 }
 
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
+/* buttons */
 
 button {
     padding: 8px 35px;
@@ -35,6 +34,41 @@ button.outlined {
     background-color: #fff;
 }
 
+
+/* flex */
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.flex-columns {
+    flex-direction: column;
+}
+
+.flex-start {
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.full-width {
+    width: 90%;
+}
+
+
+/* container */
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* container - sidebar */
+
 aside {
     width: 15%;
     height: 100%;
@@ -49,12 +83,6 @@ aside {
     flex-direction: column;
 }
 
-aside.login-aside {
-    width: 50%;
-    background-color: rgb(3, 174, 238, 0.1);
-    box-shadow: unset;
-}
-
 aside #logo {
     padding: 20px 0px;
     background-color: rgba(226, 232, 250, 0.2);
@@ -67,7 +95,7 @@ aside #side-nav {
     height: 100%;
     text-align: center;
     margin-top: 15px;
-} 
+}
 
 aside #side-nav ul {
     margin-left: 20px;
@@ -78,7 +106,6 @@ aside #side-nav ul li {
     list-style: none;
     background-color: #03AEEE;
     width: 100%;
-    
     padding: 12px 5px;
     border-radius: 50px 0% 00% 50px;
 }
@@ -99,8 +126,10 @@ aside #side-nav ul li a {
     font-weight: bold;
 }
 
+/* container - main */
+
 main.main-container {
-    margin-left: 15%; 
+    margin-left: 15%;
     margin-top: 80px;
     padding-top: 15px;
     position: relative;
@@ -112,6 +141,8 @@ main.login-main {
     margin-left: 50%;
     background: #fff;
 }
+
+/* container - section cards */
 
 main section {
     background: #FDFDFD 0% 0% no-repeat padding-box;
@@ -136,6 +167,9 @@ main section.login-section {
 main section.login-section #logo {
     margin-bottom: 15px;
 }
+
+
+/* forms */
 
 main section #form-container {
     display: flex;
@@ -177,9 +211,10 @@ main section#form .input-field .input-field-container label.input {
     color: #555;
 }
 
-
-main section#form input, main section#form select, .input-dummy {
-    padding: 10px 10px;
+main section#form input,
+main section#form select,
+.input-dummy {
+    padding: 10px 5px;
     background: rgb(245, 249, 253);
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -187,12 +222,14 @@ main section#form input, main section#form select, .input-dummy {
 }
 
 .input-dummy {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .input {
     border: 1px solid #ddd;
-    padding: 6px;
+    padding: 5px;
 }
 
 main section#form select::after {
@@ -203,12 +240,7 @@ main section#form select::after {
 }
 
 
-.flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* main container - actions */
 
 .action-container {
     display: flex;
@@ -227,7 +259,11 @@ main section#form select::after {
     border: none;
 }
 
-.icon-button, button {
+
+/* icon button */
+
+.icon-button,
+button {
     cursor: pointer;
 }
 
@@ -248,11 +284,20 @@ main section#form select::after {
     margin-left: -35px;
 }
 
+.icon-button svg {
+    width: 20px;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+
+/* table */
+
 table {
     padding: 10px 25px 25px 25px;
     width: 100%;
     border-spacing: 0 1.005em;
-}   
+}
 
 thead {
     background-color: #EAF9FF;
@@ -270,12 +315,13 @@ tbody tr {
     background-color: #FFFFFF;
     box-shadow: 0px 3px 6px #9D9D9D29;
     border-radius: 10px;
-    line-height: 30px;
+    cursor: pointer;
 }
 
 tbody td {
     padding: 8px 15px;
 }
+
 
 tbody td svg {
     width: 20px;
@@ -283,9 +329,10 @@ tbody td svg {
     cursor: pointer;
 }
 
+
+/* status badge */
+
 .status .tag {
-    padding: 2px 8px;
-    /* width: 40px; */
     width: 150px;
     text-align: center;
     border-radius: 40px;
@@ -303,18 +350,8 @@ tbody td svg {
     background: #FFBFBF;
 }
 
-.flex-columns {
-    flex-direction: column;
-}
 
-.flex-start {
-    justify-content: start;
-    align-items: flex-start;
-}
-
-.full-width {
-    width: 90%;
-}
+/* home page - container */
 
 .home-container {
     background: rgb(226, 232, 250, 0.2);
@@ -326,7 +363,7 @@ tbody td svg {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .logo-title {
@@ -346,4 +383,38 @@ tbody td svg {
 .home-login-button {
     display: block;
     text-align: center;
+}
+
+
+/* employee details page */
+
+main section.employee-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+main section .employee-detail-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+    margin-right: 35px;
+}
+
+.employee-details .employee-detail-label {
+    color: #8B8D9D;
+}
+
+
+/* */
+aside.login-aside {
+    width: 50%;
+    background-color: rgba(224,248,253,255);
+    box-shadow: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

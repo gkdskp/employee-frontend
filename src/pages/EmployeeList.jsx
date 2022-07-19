@@ -1,6 +1,6 @@
 import IconButton from "../components/IconButton";
 import MainContainer from "../components/MainContainer";
-import SelectField from "../components/SelectField";
+// import SelectField from "../components/SelectField";
 import { useDeleteEmployeeMutation, useGetEmployeesQuery } from '../api';
 import { useNavigate } from "react-router-dom";
 import EmployeeTable from "../components/EmployeeTable";
@@ -11,17 +11,20 @@ function EmployeeList() {
     const navigate = useNavigate();
 
     const goToEditForm = (id) => {
-        console.log("Hi");
         navigate('/edit', { state: { id }});
     }
 
+    const goToEmployeeDetail = (id) => {
+        navigate(`/employee/${id}`);
+    }
+
     const actions = [
-        (
-            <div className="action-container filter" key="filter">
-                <p>Filter By</p>
-                <SelectField options={['Status']} />
-            </div>
-        ),
+        // (
+        //     <div className="action-container filter" key="filter">
+        //         <p>Filter By</p>
+        //         <SelectField options={['Status']} />
+        //     </div>
+        // ),
         (
             <div className="action-container icon-button" key="icon-button">
                 <IconButton
@@ -54,6 +57,7 @@ function EmployeeList() {
                 tableHeaderItems={tableHeaderItems}
                 onEdit={goToEditForm}
                 onDelete={deleteEmployee}
+                onClick={goToEmployeeDetail}
             />
         </MainContainer>
     ); 

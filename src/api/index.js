@@ -18,21 +18,23 @@ export const employeeApi = createApi({
 
             })
         }),
+
         deleteEmployee: builder.mutation({
-            invalidatesTags: ['emp-list'],
+            invalidatesTags: ['emp-list', 'emp'],
             query: id => ({
                 url: `employee/${id}`,
                 method: 'DELETE'
             })
         }),
+
         getEmployeeById: builder.query({
             query: id => `employee/${id}`,
             providesTags: ['emp']
         }),
+        
         editEmployee: builder.mutation({
             invalidatesTags: ['emp-list', 'emp'],
             query: (payload) => {
-                debugger;
                 return ({
                 url: `employee/${payload.id}`,
                 method: 'PUT',

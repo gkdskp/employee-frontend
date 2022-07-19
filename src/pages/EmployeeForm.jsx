@@ -7,19 +7,19 @@ import { useEffect, useState } from 'react';
 import MainContainer from '../components/MainContainer';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCreateEmployeeMutation, useEditEmployeeMutation, useGetEmployeeByIdQuery } from '../api';
+import { inputFields } from '../utils';
+
 
 function EmployeeForm() {
   const { state } = useLocation();
   const [newEmployee, setNewEmployee] = useState({});
   const navigate = useNavigate();
-  const { data } = useGetEmployeeByIdQuery(state?.id);
+  const { data } = useGetEmployeeByIdQuery(state?.id, { skip: !state?.id });
   const [createEmployee] = useCreateEmployeeMutation();
   const [editEmployee] = useEditEmployeeMutation();
 
   useEffect(() => {
-    console.log(state);
     if(state?.id && data) {
-      console.log("Hi");
       const fetchedEmployee = data['data']
       setNewEmployee({
         name: fetchedEmployee.name ?? '',
@@ -32,7 +32,7 @@ function EmployeeForm() {
         status: fetchedEmployee.status ?? 'Choose Status'
       });
     }
-  }, [data, state.id])
+  }, [data, state?.id])
 
   const handleChange = (name, value) => {
     setNewEmployee({
@@ -44,28 +44,20 @@ function EmployeeForm() {
   const onSubmit = () => {
     if(! state?.id) { createEmployee(newEmployee); }
     else { 
-      console.log(newEmployee)
-      debugger;
       editEmployee({ id: state?.id, newEmployee }); 
     }   
     goToDashboard();
   }
 
   const goToDashboard = () => {
-    navigate('/dashboard')
+    navigate('/employee')
   }
 
-  const inputFields = [
-    { label: 'Employee Name', name: 'name' },
-    { label: 'Employee Email', type: 'email', name: 'email' },
-    { label: 'Employee ID', name: 'id' },
-    { label: 'Joining Date', type: 'date', name: 'joiningDate' },
-    { label: 'Experience', name: 'experience', type: 'number' },
-    { label: 'Address', name: 'address' }
-  ];
+
 
   return (
-    <MainContainer title={`${state?.id ? "Edit": "Create"} Employee`}>
+    <MainContainer 
+      title={`${state?.id ? "Edit": "Create"} Employee`}>
       <section id="form">
         <form id="employee-form">
           <div id="form-container">
@@ -95,7 +87,7 @@ function EmployeeForm() {
           </div>
           <div id="form-buttons">
             <Button handleClick={onSubmit}
-              label={'Create'}
+              label={`${state?.id ? "Edit": "Create"}`}
               variant="primary"
             />
             <Button

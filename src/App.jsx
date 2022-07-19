@@ -10,11 +10,6 @@ function App() {
 
   const [showMessage, setShowMessage] = useState(false);
 
-  // const onUsernameChange = (value)
-  useEffect(() => {
-    console.log(username);
-  }, [username]);
-
   return (
     <div className="App">
       <main>

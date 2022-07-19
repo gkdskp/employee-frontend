@@ -3,12 +3,12 @@ import TrashIcon from "./TrashIcon";
 import PencilIcon from "./PencilIcon";
 
 function EmployeeTable(props) {
-    const { tableHeaderItems, data, onDelete, onEdit } = props;
+    const { tableHeaderItems, data, onDelete, onEdit, onClick } = props;
 
     return (
         <Table headerItems={tableHeaderItems}>
             {data.map((data, index) => (
-                <tr className="card" key={index}>
+                <tr className="card" key={index} onClick={() => onClick(data['id'])}>
                     <td>{data['name']}</td>
                     <td>{data['id']}</td>
                     <td>{data['joiningDate'].substring(0, 10)}</td>
@@ -16,7 +16,7 @@ function EmployeeTable(props) {
                     <td
                         className={`status status-${data['status']?.toLowerCase()}`}
                     ><div className="tag">{data['status']}</div></td>
-                    <td>{data['experience']} Years</td>
+                    <td>{data['experience']} {`Years`}</td>
                     <td>
                         <TrashIcon onClick={() => onDelete(data['id'])} />
                         <PencilIcon onClick={() => onEdit(data['id'])} />

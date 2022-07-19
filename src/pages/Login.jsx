@@ -27,7 +27,11 @@ function Login() {
 
     return (<>
         <aside className="login-aside">
-
+            <img 
+                src="/assets/hero.png" 
+                width="750px" 
+                alt="hero" 
+            />
         </aside>
         <main className="login-main">
             <section id="form" className="vertical-fields login-section">
@@ -50,7 +54,7 @@ function Login() {
                         </div>
                         <div id="form-buttons">
                             <Button
-                                handleClick={() => { navigate('/dashboard'); }}
+                                handleClick={() => { navigate('/employee'); }}
                                 label={'Log In'}
                                 variant="primary full-width"
                             />

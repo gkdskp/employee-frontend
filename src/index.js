@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import Counter from './pages/Counter';
 import HomePage from './pages/HomePage';
 import EmployeeForm from './pages/EmployeeForm';
+import EmployeeDetail from './pages/EmployeeDetail';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,7 +22,8 @@ root.render(
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/edit" element={<EmployeeForm />} />
-          <Route path="/dashboard" element={<EmployeeList />} />
+          <Route path="/employee" element={<EmployeeList />} />
+          <Route path="/employee/:id" element={<EmployeeDetail />} />
           <Route path="/counter" element={<Counter />} />
         </Routes>
       </BrowserRouter>

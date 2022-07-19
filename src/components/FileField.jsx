@@ -6,6 +6,7 @@ function FileField(props) {
             <div className="input-field-container">
                 <label htmlFor="" name="">{ label }</label>
                 <div className="input-dummy">
+                    <span></span>
                     <label 
                         htmlFor="id-proof" 
                         name="" 
